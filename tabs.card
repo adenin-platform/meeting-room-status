@@ -1,0 +1,55 @@
+$type: card
+rules: []
+properties:
+  top:
+    type: element
+    xtype: at-core-view
+    model: 
+    view: <div>header</div>
+    xgridcols: 12
+    xstyle: 
+    xclass: 
+    actionListeners:
+      - _start
+    default: 
+  tab1:
+    type: section
+    title: Tab 1
+    xgridcols: 12
+    xstyle: 
+    xclass: 
+    actionListeners:
+      - _start
+  content1:
+    type: element
+    xtype: at-core-view
+    model: 
+    view: tab1 content
+    xgridcols: 12
+    xstyle: 
+    xclass: 
+    actionListeners:
+      - _start
+    default: 
+  tab2:
+    type: section
+    title: Tab 2
+    xgridcols: 12
+    xstyle: 
+    xclass: 
+    actionListeners:
+      - _start
+  content2:
+    type: element
+    xtype: at-core-view
+    model: 
+    view: tab2 content
+    xgridcols: 12
+    xstyle: 
+    xclass: 
+    actionListeners:
+      - _start
+    default: 
+$meta:
+  cardId: -1
+  preview-mode: static

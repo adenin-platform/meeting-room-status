@@ -1,0 +1,50 @@
+$type: form
+properties:
+  datetime1:
+    type: string
+    title: When would you like to reserve?
+    xtype: datetime
+  time9:
+    type: string
+    title: Until when would you like to reserve?
+    xtype: time
+  number2:
+    type: number
+    title: For how many?
+  toggle3:
+    type: boolean
+    title: WiFi required
+    xtype: toggle
+    default: false
+  list6:
+    type: string
+    title: Order catering
+    xtype: at-form-checkbox-list
+    xvaluelist:
+      - value: coffee
+        title: Coffee
+        disabled: !!bool false
+      - value: tea
+        title: Tea
+        disabled: !!bool false
+      - value: lunch
+        title: Lunch
+        disabled: !!bool false
+      - value: vegeterian
+        title: Vegetarian Option
+        disabled: !!bool false
+      - value: vegan
+        title: Vegan Option
+        disabled: !!bool false
+      - value: allergy
+        title: Allergies present - contact via email
+        disabled: !!bool false
+  random5:
+    type: string
+    title: Create conference call passcode
+    xtype: random
+    maxChars: !!int 6
+rules: []
+$meta:
+  title: Reserve a meeting room
+  sectionMode: auto

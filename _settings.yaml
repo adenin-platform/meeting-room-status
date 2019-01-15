@@ -1,0 +1,77 @@
+contentType: Card
+title: Room Finder
+name: meetingroom-status
+StreamSource: null
+CollectionModeField:
+  CollectionMode: 0
+PriorityField:
+  Priority: 5
+MaxItemsField:
+  MaxItems: 3
+CardComponent: meetingroom-status/meetingroom-status-card
+StoreMetadataField:
+  description: Shows you a list of meeting rooms, along with their current status, capacity and location. Reserve meeting rooms right from the card.
+  logourl: /meetingroom-status/icons8-meeting_room.svg
+  storehide: !!bool false
+  disableWorkplace: !!bool false
+CommonPart:
+  Owner: !!int 2
+  Container: null
+  CreatedUtc: 2019-01-11T18:09:58.7119986Z
+  PublishedUtc: 2019-01-11T20:08:19.1391896Z
+  ModifiedUtc: 2019-01-11T20:08:19.0756661Z
+  VersionCreatedUtc: 2019-01-11T20:08:19.0000000
+  VersionPublishedUtc: 2019-01-11T20:08:19.0000000
+  VersionModifiedUtc: 2019-01-11T20:08:19.0000000
+ServicePart:
+  ConnectorTypeName: IntelliEnterprise
+  ConnectorTypeId: !!int 29
+  ConnectorName: toaster
+  ServiceName: EntityResolver
+  Url: ~/api/adenin.GateKeeper.Connector/toaster/EntityResolver
+  ServiceParameters: '{}'
+SearchContextPart:
+  Query: ObjTypeId:1000153
+  Interface: null
+CommandPart:
+  CommandType: Utterances
+  Command: |-
+    Show me available (meeting rooms|rooms|conference rooms)
+
+    What (meeting rooms|rooms|conference rooms) are available (right now|now)?
+  DefaultDate: null
+  Intent: find_meetingroom_card
+  Ext: {}
+AppPart:
+  App: null
+  Url: 
+  ExtUrl: 
+  Priority: !!int 0
+  AppFaceId: !!int 0
+  Category: orange
+  Icon: now:search
+  CSSClasses: null
+  Enabled: !!bool false
+  NewWindow: !!bool false
+  UrlWithId: !!bool true
+  AvailableAppFaceRecords: null
+  HasPattern: !!bool false
+RoleViewPermissionsPart:
+  AllowedRoles:
+    - Administrator
+  Audiences:
+    - User Journey Users
+    - Live Presentation
+  Mandatory: False
+RecurringTaskPart:
+  Schedule: '- - - - -'
+  ActivityType: adenin.Now.Activities.CardTask.UpdateCard
+  StartDateUtc: null
+  EndDateUtc: null
+  NextOccurrenceUtc: null
+  Priority: !!int 5
+  Status: Enabled
+  NowFlag: 0
+  LastExecutionUTC: null
+  EnableWebHook: !!bool false
+  WebHookToken: null

@@ -1,0 +1,592 @@
+$type: card
+rules: []
+properties:
+  title3:
+    type: element
+    title: Card Title 3
+    xtype: at-carbon-card-title
+    xgridcols: 12
+  view1:
+    type: element
+    xtype: at-core-view
+    model: 
+    view: |2+
+
+
+      <style>
+        .status-icon {
+          width: 12px;
+          height: 12px;
+          display: inline-block;
+          border-radius: 50%;
+          position: relative;
+          top: 1px;
+      }
+        
+       
+        
+      .orange .pulsate {
+          box-shadow: 0 0 0 rgba(255, 183, 77, 0.4);
+          animation: orange-pulsate 4s infinite;
+      }
+        
+      .red .pulsate {
+            box-shadow: 0 0 0 rgba(229, 115, 115, 0.4);
+          animation: red-pulsate 2s infinite;
+        }
+      .pulsate:hover {
+        animation: none;
+      }
+
+      @keyframes orange-pulsate {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 183, 77, 0.4);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(255, 183, 77, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(255, 183, 77, 0);
+        }
+      }
+       
+        @keyframes red-pulsate {
+        0% {
+          box-shadow: 0 0 0 0 rgba(229, 115, 115, 0.4);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(229, 115, 115, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(229, 115, 115, 0);
+        }
+      }
+        
+        
+        .background-lightOrange.at-core-dashboard {
+          background-color: var(--at-light-orange) !important;
+        }
+        
+      </style>
+
+
+      {% for room in items %}
+
+      <div class="mx mysm layout-horizontal">
+      <iron-image sizing="cover" alt="Conference Room" width="90" height="60" src="http://demo.adenin.com/dm/1000153/{{room.id}}-Photo.jpg"></iron-image>
+        <div class="ml mr layout-flex-4">
+        <div class="font-subhead primary">{{room.title}}</div>
+        <div>
+          {% if {{room.properties.Status}} = "free" %}
+        <div class="layout-vertical">
+        <div class="green"><div class="status-icon background-lightGreen"></div> Free</div>
+        </div>
+        {% endif %}
+        
+         {% if {{room.properties.Status}} = "issue" %}
+          <div class="layout-vertical">
+        <div class="orange"><div class="status-icon pulsate background-lightOrange"></div> {{room.properties.Availability}}</div>
+        </div>
+        {% endif %} 
+        
+        {% if {{room.properties.Status}} = "occupied" %}
+           <div class="layout-vertical">
+        <div class="red"><div class="status-icon pulsate background-lightRed"></div> {{room.properties.Availability}}</div>
+        </div>
+        {% endif %}
+        </div>
+      </div>
+      <div class="layout-flex layout-self-center">
+        <div class="layout-horizontal">
+      <iron-image sizing="cover" style="position: relative; top: 3px;" width="14" height="14" src="/components/meetingroom-status/icons8-marker.svg"></iron-image>
+        <div>{{room.properties.RoomNumber}}</span></div>
+        </div>
+          <div class="layout-horizontal">
+      <iron-image sizing="cover" style="position: relative; top: 3px;"  width="14" height="14" src="/components/meetingroom-status/icons8-person_male.svg"></iron-image>
+        <div>{{room.properties.Capacity}}</div>
+        </div>
+        </div>
+          
+      </div>
+
+
+        
+       
+
+      {% endfor %}
+
+
+
+    xgridcols: 12
+    xstyle: 
+    xclass: mb
+    actionListeners:
+      - _start
+    default: 
+    updateMode: 0
+    modelRoot: state.model
+  actions5:
+    type: element
+    title: Card Actions 5
+    xtype: at-carbon-card-actions
+    xgridcols: 12
+$meta:
+  preview-mode: live
+  preview-container: search
+  cardId: -1
+  search-term: 
+  service-url: 
+  preview-data: |-
+    {
+      "items": [
+        {
+          "_connector": "toaster",
+          "id": "1000010",
+          "title": "North Dakota",
+          "description": "2nd Is currently being cleaned 265 Conference phone, TV",
+          "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000010",
+          "ObjTypeId": "1000153",
+          "remoteHost": "demo.adenin.com",
+          "date": "2019-01-11T13:04:12Z",
+          "properties": {
+            "z998MeetingRoomsId": "1000010",
+            "z998MeetingRoomsCaption": "North Dakota",
+            "atCreateDate": "2017-01-26T00:00:00",
+            "atCreateUser": "1019922",
+            "atChangeDate": "2019-01-11T00:00:00",
+            "atChangeUser": "1019922",
+            "Location": "2nd",
+            "Availability": "Is currently being cleaned",
+            "RoomNumber": "265",
+            "Status": "issue",
+            "Features": "Conference phone, TV",
+            "Capacity": "6"
+          },
+          "preview": "image|http://demo.adenin.com/dm/1000153/1000010-photo.jpg.jpg",
+          "raw": {
+            "Extensions_objTypeId": "1000153",
+            "Extensions_objId": "1000010",
+            "Extensions_thumbnailUrl": "http://demo.adenin.com/dm/1000153/1000010-photo.jpg.jpg",
+            "media_thumbnail": "http://demo.adenin.com/dm/1000153/1000010-photo.jpg.jpg",
+            "thumbnail": "http://demo.adenin.com/dm/1000153/1000010-photo.jpg.jpg",
+            "mrss_thumbnail": "replace with media_thumbnail",
+            "title": "North Dakota",
+            "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000010",
+            "description": "2nd Is currently being cleaned 265 Conference phone, TV",
+            "author": "",
+            "pubDate": "2019-01-11T13:04:12Z",
+            "win_System.DateCreated": "2017-01-26T17:34:29Z",
+            "propertynamespace_SystemDateCreated": "replace with win_System.DateCreated",
+            "Extensions_properties": {
+              "z998MeetingRoomsId": "1000010",
+              "z998MeetingRoomsCaption": "North Dakota",
+              "atCreateDate": "2017-01-26T00:00:00",
+              "atCreateUser": "1019922",
+              "atChangeDate": "2019-01-11T00:00:00",
+              "atChangeUser": "1019922",
+              "Location": "2nd",
+              "Availability": "Is currently being cleaned",
+              "RoomNumber": "265",
+              "Status": "issue",
+              "Features": "Conference phone, TV",
+              "Capacity": "6"
+            }
+          }
+        },
+        {
+          "_connector": "toaster",
+          "id": "1000009",
+          "title": "Wyoming",
+          "description": "9th 900 Video conferencing suite",
+          "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000009",
+          "ObjTypeId": "1000153",
+          "remoteHost": "demo.adenin.com",
+          "date": "2019-01-11T13:04:21Z",
+          "properties": {
+            "z998MeetingRoomsId": "1000009",
+            "z998MeetingRoomsCaption": "Wyoming",
+            "atCreateDate": "2017-01-25T00:00:00",
+            "atCreateUser": "1019922",
+            "atChangeDate": "2019-01-11T00:00:00",
+            "atChangeUser": "1019922",
+            "Location": "9th",
+            "RoomNumber": "900",
+            "Status": "free",
+            "Features": "Video conferencing suite",
+            "Capacity": "12"
+          },
+          "preview": "image|http://demo.adenin.com/dm/1000153/1000009-photo.jpg.jpg",
+          "raw": {
+            "Extensions_objTypeId": "1000153",
+            "Extensions_objId": "1000009",
+            "Extensions_thumbnailUrl": "http://demo.adenin.com/dm/1000153/1000009-photo.jpg.jpg",
+            "media_thumbnail": "http://demo.adenin.com/dm/1000153/1000009-photo.jpg.jpg",
+            "thumbnail": "http://demo.adenin.com/dm/1000153/1000009-photo.jpg.jpg",
+            "mrss_thumbnail": "replace with media_thumbnail",
+            "title": "Wyoming",
+            "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000009",
+            "description": "9th 900 Video conferencing suite",
+            "author": "",
+            "pubDate": "2019-01-11T13:04:21Z",
+            "win_System.DateCreated": "2017-01-25T21:16:37Z",
+            "propertynamespace_SystemDateCreated": "replace with win_System.DateCreated",
+            "Extensions_properties": {
+              "z998MeetingRoomsId": "1000009",
+              "z998MeetingRoomsCaption": "Wyoming",
+              "atCreateDate": "2017-01-25T00:00:00",
+              "atCreateUser": "1019922",
+              "atChangeDate": "2019-01-11T00:00:00",
+              "atChangeUser": "1019922",
+              "Location": "9th",
+              "RoomNumber": "900",
+              "Status": "free",
+              "Features": "Video conferencing suite",
+              "Capacity": "12"
+            }
+          }
+        },
+        {
+          "_connector": "toaster",
+          "id": "1000008",
+          "title": "Utah",
+          "description": "4th 414 Projector, Training suite",
+          "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000008",
+          "ObjTypeId": "1000153",
+          "remoteHost": "demo.adenin.com",
+          "date": "2019-01-11T13:04:27Z",
+          "properties": {
+            "z998MeetingRoomsId": "1000008",
+            "z998MeetingRoomsCaption": "Utah",
+            "atCreateDate": "2017-01-25T00:00:00",
+            "atCreateUser": "1019922",
+            "atChangeDate": "2019-01-11T00:00:00",
+            "atChangeUser": "1019922",
+            "Location": "4th",
+            "RoomNumber": "414",
+            "Status": "free",
+            "Features": "Projector, Training suite",
+            "Capacity": "18"
+          },
+          "preview": "image|http://demo.adenin.com/dm/1000153/1000008-photo.jpg.jpg",
+          "raw": {
+            "Extensions_objTypeId": "1000153",
+            "Extensions_objId": "1000008",
+            "Extensions_thumbnailUrl": "http://demo.adenin.com/dm/1000153/1000008-photo.jpg.jpg",
+            "media_thumbnail": "http://demo.adenin.com/dm/1000153/1000008-photo.jpg.jpg",
+            "thumbnail": "http://demo.adenin.com/dm/1000153/1000008-photo.jpg.jpg",
+            "mrss_thumbnail": "replace with media_thumbnail",
+            "title": "Utah",
+            "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000008",
+            "description": "4th 414 Projector, Training suite",
+            "author": "",
+            "pubDate": "2019-01-11T13:04:27Z",
+            "win_System.DateCreated": "2017-01-25T21:15:58Z",
+            "propertynamespace_SystemDateCreated": "replace with win_System.DateCreated",
+            "Extensions_properties": {
+              "z998MeetingRoomsId": "1000008",
+              "z998MeetingRoomsCaption": "Utah",
+              "atCreateDate": "2017-01-25T00:00:00",
+              "atCreateUser": "1019922",
+              "atChangeDate": "2019-01-11T00:00:00",
+              "atChangeUser": "1019922",
+              "Location": "4th",
+              "RoomNumber": "414",
+              "Status": "free",
+              "Features": "Projector, Training suite",
+              "Capacity": "18"
+            }
+          }
+        },
+        {
+          "_connector": "toaster",
+          "id": "1000007",
+          "title": "South Dakota",
+          "description": "2nd Reserved until 3:30pm 245 TV, Whiteboard, Natural light",
+          "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000007",
+          "ObjTypeId": "1000153",
+          "remoteHost": "demo.adenin.com",
+          "date": "2019-01-11T13:04:32Z",
+          "properties": {
+            "z998MeetingRoomsId": "1000007",
+            "z998MeetingRoomsCaption": "South Dakota",
+            "atCreateDate": "2017-01-25T00:00:00",
+            "atCreateUser": "1019922",
+            "atChangeDate": "2019-01-11T00:00:00",
+            "atChangeUser": "1019922",
+            "Location": "2nd",
+            "Availability": "Reserved until 3:30pm",
+            "RoomNumber": "245",
+            "Status": "occupied",
+            "Features": "TV, Whiteboard, Natural light",
+            "Capacity": "18"
+          },
+          "preview": "image|http://demo.adenin.com/dm/1000153/1000007-photo.jpg.jpg",
+          "raw": {
+            "Extensions_objTypeId": "1000153",
+            "Extensions_objId": "1000007",
+            "Extensions_thumbnailUrl": "http://demo.adenin.com/dm/1000153/1000007-photo.jpg.jpg",
+            "media_thumbnail": "http://demo.adenin.com/dm/1000153/1000007-photo.jpg.jpg",
+            "thumbnail": "http://demo.adenin.com/dm/1000153/1000007-photo.jpg.jpg",
+            "mrss_thumbnail": "replace with media_thumbnail",
+            "title": "South Dakota",
+            "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000007",
+            "description": "2nd Reserved until 3:30pm 245 TV, Whiteboard, Natural light",
+            "author": "",
+            "pubDate": "2019-01-11T13:04:32Z",
+            "win_System.DateCreated": "2017-01-25T21:15:32Z",
+            "propertynamespace_SystemDateCreated": "replace with win_System.DateCreated",
+            "Extensions_properties": {
+              "z998MeetingRoomsId": "1000007",
+              "z998MeetingRoomsCaption": "South Dakota",
+              "atCreateDate": "2017-01-25T00:00:00",
+              "atCreateUser": "1019922",
+              "atChangeDate": "2019-01-11T00:00:00",
+              "atChangeUser": "1019922",
+              "Location": "2nd",
+              "Availability": "Reserved until 3:30pm",
+              "RoomNumber": "245",
+              "Status": "occupied",
+              "Features": "TV, Whiteboard, Natural light",
+              "Capacity": "18"
+            }
+          }
+        },
+        {
+          "_connector": "toaster",
+          "id": "1000006",
+          "title": "Kansas",
+          "description": "2nd Reserved for the entire day 248 TV, 2 Whiteboards",
+          "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000006",
+          "ObjTypeId": "1000153",
+          "remoteHost": "demo.adenin.com",
+          "date": "2019-01-11T13:04:37Z",
+          "properties": {
+            "z998MeetingRoomsId": "1000006",
+            "z998MeetingRoomsCaption": "Kansas",
+            "atCreateDate": "2017-01-25T00:00:00",
+            "atCreateUser": "1019922",
+            "atChangeDate": "2019-01-11T00:00:00",
+            "atChangeUser": "1019922",
+            "Location": "2nd",
+            "Availability": "Reserved for the entire day",
+            "RoomNumber": "248",
+            "Status": "occupied",
+            "Features": "TV, 2 Whiteboards",
+            "Capacity": "10"
+          },
+          "preview": "image|http://demo.adenin.com/dm/1000153/1000006-photo.jpg.jpg",
+          "raw": {
+            "Extensions_objTypeId": "1000153",
+            "Extensions_objId": "1000006",
+            "Extensions_thumbnailUrl": "http://demo.adenin.com/dm/1000153/1000006-photo.jpg.jpg",
+            "media_thumbnail": "http://demo.adenin.com/dm/1000153/1000006-photo.jpg.jpg",
+            "thumbnail": "http://demo.adenin.com/dm/1000153/1000006-photo.jpg.jpg",
+            "mrss_thumbnail": "replace with media_thumbnail",
+            "title": "Kansas",
+            "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000006",
+            "description": "2nd Reserved for the entire day 248 TV, 2 Whiteboards",
+            "author": "",
+            "pubDate": "2019-01-11T13:04:37Z",
+            "win_System.DateCreated": "2017-01-25T21:13:51Z",
+            "propertynamespace_SystemDateCreated": "replace with win_System.DateCreated",
+            "Extensions_properties": {
+              "z998MeetingRoomsId": "1000006",
+              "z998MeetingRoomsCaption": "Kansas",
+              "atCreateDate": "2017-01-25T00:00:00",
+              "atCreateUser": "1019922",
+              "atChangeDate": "2019-01-11T00:00:00",
+              "atChangeUser": "1019922",
+              "Location": "2nd",
+              "Availability": "Reserved for the entire day",
+              "RoomNumber": "248",
+              "Status": "occupied",
+              "Features": "TV, 2 Whiteboards",
+              "Capacity": "10"
+            }
+          }
+        },
+        {
+          "_connector": "toaster",
+          "id": "1000005",
+          "title": "Gratitude",
+          "description": "3rd 311 2 TVs, 2 Whiteboards, Natural Light",
+          "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000005",
+          "ObjTypeId": "1000153",
+          "remoteHost": "demo.adenin.com",
+          "date": "2019-01-11T13:04:59Z",
+          "properties": {
+            "z998MeetingRoomsId": "1000005",
+            "z998MeetingRoomsCaption": "Gratitude",
+            "atCreateDate": "2017-01-25T00:00:00",
+            "atCreateUser": "1019922",
+            "atChangeDate": "2019-01-11T00:00:00",
+            "atChangeUser": "1019922",
+            "Location": "3rd",
+            "RoomNumber": "311",
+            "Status": "free",
+            "Features": "2 TVs, 2 Whiteboards, Natural Light",
+            "Capacity": "16"
+          },
+          "preview": "image|http://demo.adenin.com/dm/1000153/1000005-photo.jpg.jpg",
+          "raw": {
+            "Extensions_objTypeId": "1000153",
+            "Extensions_objId": "1000005",
+            "Extensions_thumbnailUrl": "http://demo.adenin.com/dm/1000153/1000005-photo.jpg.jpg",
+            "media_thumbnail": "http://demo.adenin.com/dm/1000153/1000005-photo.jpg.jpg",
+            "thumbnail": "http://demo.adenin.com/dm/1000153/1000005-photo.jpg.jpg",
+            "mrss_thumbnail": "replace with media_thumbnail",
+            "title": "Gratitude",
+            "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000005",
+            "description": "3rd 311 2 TVs, 2 Whiteboards, Natural Light",
+            "author": "",
+            "pubDate": "2019-01-11T13:04:59Z",
+            "win_System.DateCreated": "2017-01-25T21:13:20Z",
+            "propertynamespace_SystemDateCreated": "replace with win_System.DateCreated",
+            "Extensions_properties": {
+              "z998MeetingRoomsId": "1000005",
+              "z998MeetingRoomsCaption": "Gratitude",
+              "atCreateDate": "2017-01-25T00:00:00",
+              "atCreateUser": "1019922",
+              "atChangeDate": "2019-01-11T00:00:00",
+              "atChangeUser": "1019922",
+              "Location": "3rd",
+              "RoomNumber": "311",
+              "Status": "free",
+              "Features": "2 TVs, 2 Whiteboards, Natural Light",
+              "Capacity": "16"
+            }
+          }
+        },
+        {
+          "_connector": "toaster",
+          "id": "1000003",
+          "title": "Eddie Van Halen",
+          "description": "6th 611 2 TVs, Projector, Conferencing suite",
+          "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000003",
+          "ObjTypeId": "1000153",
+          "remoteHost": "demo.adenin.com",
+          "date": "2019-01-11T13:05:04Z",
+          "properties": {
+            "z998MeetingRoomsId": "1000003",
+            "z998MeetingRoomsCaption": "Eddie Van Halen",
+            "atCreateDate": "2017-01-25T00:00:00",
+            "atCreateUser": "1019922",
+            "atChangeDate": "2019-01-11T00:00:00",
+            "atChangeUser": "1019922",
+            "Location": "6th",
+            "RoomNumber": "611",
+            "Status": "free",
+            "Features": "2 TVs, Projector, Conferencing suite",
+            "Capacity": "16"
+          },
+          "preview": "image|http://demo.adenin.com/dm/1000153/1000003-photo.jpg.jpg",
+          "raw": {
+            "Extensions_objTypeId": "1000153",
+            "Extensions_objId": "1000003",
+            "Extensions_thumbnailUrl": "http://demo.adenin.com/dm/1000153/1000003-photo.jpg.jpg",
+            "media_thumbnail": "http://demo.adenin.com/dm/1000153/1000003-photo.jpg.jpg",
+            "thumbnail": "http://demo.adenin.com/dm/1000153/1000003-photo.jpg.jpg",
+            "mrss_thumbnail": "replace with media_thumbnail",
+            "title": "Eddie Van Halen",
+            "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000003",
+            "description": "6th 611 2 TVs, Projector, Conferencing suite",
+            "author": "",
+            "pubDate": "2019-01-11T13:05:04Z",
+            "win_System.DateCreated": "2017-01-25T21:09:58Z",
+            "propertynamespace_SystemDateCreated": "replace with win_System.DateCreated",
+            "Extensions_properties": {
+              "z998MeetingRoomsId": "1000003",
+              "z998MeetingRoomsCaption": "Eddie Van Halen",
+              "atCreateDate": "2017-01-25T00:00:00",
+              "atCreateUser": "1019922",
+              "atChangeDate": "2019-01-11T00:00:00",
+              "atChangeUser": "1019922",
+              "Location": "6th",
+              "RoomNumber": "611",
+              "Status": "free",
+              "Features": "2 TVs, Projector, Conferencing suite",
+              "Capacity": "16"
+            }
+          }
+        },
+        {
+          "_connector": "toaster",
+          "id": "1000002",
+          "title": "California",
+          "description": "2nd Issues with intermittent Wi-Fi reported 266 Whiteboards",
+          "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000002",
+          "ObjTypeId": "1000153",
+          "remoteHost": "demo.adenin.com",
+          "date": "2019-01-11T13:08:15Z",
+          "properties": {
+            "z998MeetingRoomsId": "1000002",
+            "z998MeetingRoomsCaption": "California",
+            "atCreateDate": "2017-01-25T00:00:00",
+            "atCreateUser": "1019922",
+            "atChangeDate": "2019-01-11T00:00:00",
+            "atChangeUser": "1019922",
+            "Location": "2nd",
+            "Availability": "Issues with intermittent Wi-Fi reported",
+            "RoomNumber": "266",
+            "Status": "issue",
+            "Features": "Whiteboards",
+            "Capacity": "8"
+          },
+          "preview": "image|http://demo.adenin.com/dm/1000153/1000002-photo.jpg.jpg",
+          "raw": {
+            "Extensions_objTypeId": "1000153",
+            "Extensions_objId": "1000002",
+            "Extensions_thumbnailUrl": "http://demo.adenin.com/dm/1000153/1000002-photo.jpg.jpg",
+            "media_thumbnail": "http://demo.adenin.com/dm/1000153/1000002-photo.jpg.jpg",
+            "thumbnail": "http://demo.adenin.com/dm/1000153/1000002-photo.jpg.jpg",
+            "mrss_thumbnail": "replace with media_thumbnail",
+            "title": "California",
+            "link": "http://demo.adenin.com/demo.aspx?bo=atSearchCtrl.wo&fn=showitem&ObjTypeId=1000153&ObjId=1000002",
+            "description": "2nd Issues with intermittent Wi-Fi reported 266 Whiteboards",
+            "author": "",
+            "pubDate": "2019-01-11T13:08:15Z",
+            "win_System.DateCreated": "2017-01-25T21:09:27Z",
+            "propertynamespace_SystemDateCreated": "replace with win_System.DateCreated",
+            "Extensions_properties": {
+              "z998MeetingRoomsId": "1000002",
+              "z998MeetingRoomsCaption": "California",
+              "atCreateDate": "2017-01-25T00:00:00",
+              "atCreateUser": "1019922",
+              "atChangeDate": "2019-01-11T00:00:00",
+              "atChangeUser": "1019922",
+              "Location": "2nd",
+              "Availability": "Issues with intermittent Wi-Fi reported",
+              "RoomNumber": "266",
+              "Status": "issue",
+              "Features": "Whiteboards",
+              "Capacity": "8"
+            }
+          }
+        }
+      ],
+      "_settings": {}
+    }
+  xclass: 
+  xstyle: 
+  code: |-
+    action.initialize = function(state) {
+        state.model.showText = false;
+    }
+
+    action.toggleText = function(state) {
+        state.model.showText = !state.model.showText; 
+    }
+  actionList:
+    - id: reserve
+      label: Reserve meeting room
+      settings:
+        actionType: a
+        icon: 
+        buttonType: !!int 0
+        href: 
+        promptType: 1
+        promptForm: room-reservation.form
+        command: 
+    - id: 
+      label: 
+      settings: {}

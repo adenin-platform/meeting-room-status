@@ -1,0 +1,8 @@
+{
+  "name": "find-meetingroom (1)",
+  "version": "0.0.1.97",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  }
+}
